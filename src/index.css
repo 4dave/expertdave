@@ -1,21 +1,25 @@
 @import "tailwindcss";
 
+html,
+body {
+  scroll-behavior: smooth;
+  overscroll-behavior-y: none;
+  height: 100%;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --color-main: var(--bg-main);
-  --color-nav: var(--bg-nav);
   --color-primary: var(--text-primary);
 }
 
 :root {
-  --bg-nav: #d4d4d4;
-  --bg-main: #d4d4d4;
-  --text-primary: #404040;
+  --bg-main: #d6d3d1;
+  --text-primary: #44403b;
 }
 
 .dark {
-  --bg-nav: #525252;
-  --bg-main: #404040;
-  --text-primary: #d4d4d4;
+  --bg-main: #1c1917;
+  --text-primary: #a6a09b;
 }
