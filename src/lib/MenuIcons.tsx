@@ -1,4 +1,4 @@
-export function XIcon({ className = "h-5 w-5" }) {
+export function XIcon({ className = "h-8 w-8" }) {
   return (
     <svg
       className={className}
@@ -16,7 +16,7 @@ export function XIcon({ className = "h-5 w-5" }) {
   )
 }
 
-export function MenuIcon({ className = "h-5 w-5" }) {
+export function MenuIcon({ className = "h-8 w-8" }) {
   return (
     <svg
       className={className}
