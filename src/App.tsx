@@ -40,7 +40,7 @@ export default function App() {
         <section
           ref={homeRef}
           id="home"
-          className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4"
+          className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 snap-start"
         >
           <div className="max-w-3xl text-center space-y-4">
             <h1 className="text-3xl sm:text-4xl font-semibold">
@@ -57,7 +57,7 @@ export default function App() {
         <section
           ref={projectsRef}
           id="projects"
-          className="min-h-screen px-4 py-24 max-w-6xl mx-auto"
+          className="min-h-screen px-4 py-24 max-w-6xl mx-auto snap-start"
         >
           <h2 className="text-2xl sm:text-3xl font-semibold mb-6">Projects</h2>
           {/* Replace this with your real projects grid/list */}
@@ -71,7 +71,7 @@ export default function App() {
         <section
           ref={aboutRef}
           id="about"
-          className="min-h-screen px-4 py-24 max-w-5xl mx-auto"
+          className="min-h-screen px-4 py-24 max-w-5xl mx-auto snap-start"
         >
           <h2 className="text-2xl sm:text-3xl font-semibold mb-6">About</h2>
           <p className="text-primary/80">
@@ -84,7 +84,7 @@ export default function App() {
         <section
           ref={contactRef}
           id="contact"
-          className="min-h-screen px-4 py-24 max-w-5xl mx-auto"
+          className="min-h-screen px-4 py-24 max-w-5xl mx-auto snap-start"
         >
           <h2 className="text-2xl sm:text-3xl font-semibold mb-6">Contact</h2>
           <p className="text-primary/80">

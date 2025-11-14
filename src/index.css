@@ -4,6 +4,7 @@ html,
 body {
   scroll-behavior: smooth;
   overscroll-behavior-y: none;
+  scroll-snap-type: y mandatory;
   height: 100%;
 }
 
