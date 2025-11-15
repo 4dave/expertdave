@@ -16,11 +16,15 @@ body {
 }
 
 :root {
+  /* stone-300 */
   --bg-main: #d6d3d1;
+  /* stone-700 */
   --text-primary: #44403b;
 }
 
 .dark {
-  --bg-main: #1c1917;
+  /* stone-800 */
+  --bg-main: #2d2a26;
+  /* stone-400 */
   --text-primary: #a6a09b;
 }

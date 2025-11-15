@@ -1,6 +1,8 @@
 import { useRef, useState } from "react"
 import Header from "./components/Header"
 import Projects from "./components/Projects"
+import ContactForm from "./components/ContactForm"
+import Nerd from "./assets/nerd.png"
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -74,6 +76,7 @@ export default function App() {
           className="min-h-screen px-4 py-24 max-w-5xl mx-auto snap-start"
         >
           <h2 className="text-2xl sm:text-3xl font-semibold mb-6">About</h2>
+
           <p className="text-primary/80">
             A short story about you, your background, and what you like to work
             on.
@@ -84,12 +87,60 @@ export default function App() {
         <section
           ref={contactRef}
           id="contact"
-          className="min-h-screen px-4 py-24 max-w-5xl mx-auto snap-start"
+          className="min-h-screen px-4 py-24 snap-start"
         >
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-6">Contact</h2>
-          <p className="text-primary/80">
-            Contact info or a simple form goes here.
-          </p>
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="mt-4 text-3xl sm:text-4xl font-semibold text-primary">
+                Contact
+              </h2>
+              <div className="mt-3 h-1 w-16 mx-auto rounded-full bg-primary/40" />
+              <p className="mt-4 text-sm sm:text-base text-primary/70">
+                Have a project in mind or just want to say hi? I usually reply
+                within 1–2 business days.
+              </p>
+            </div>
+
+            <div className="grid gap-10 lg:grid-cols-2 items-start">
+              {/* Left: illustration card */}
+              <div className="relative">
+                {/* soft glow behind the card */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -inset-1 rounded-3xl bg-[radial-gradient(circle_at_top,rgba(250,250,249,0.08),transparent_60%)]"
+                />
+                <div className="relative rounded-3xl border border-border-nav/60 bg-main/5 px-8 py-10 shadow-lg flex flex-col items-center gap-6 ">
+                  <img
+                    src={Nerd}
+                    alt="Person at a computer"
+                    // className="w-40 sm:w-48"
+                    className="w-52 sm:w-60"
+                  />
+                  <div className="text-center space-y-2">
+                    <p className="text-sm text-primary/70">
+                      I&apos;m open to freelance work, collaborations, or just
+                      chatting about web dev, React, and performance.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap justify-center gap-2 text-xs text-primary/60 ">
+                    <span className="rounded-full border border-border-nav/50 px-3 py-1">
+                      Frontend &amp; React
+                    </span>
+                    <span className="rounded-full border border-border-nav/50 px-3 py-1">
+                      Full-stack projects
+                    </span>
+                    <span className="rounded-full border border-border-nav/50 px-3 py-1">
+                      Lots More
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <ContactForm />
+              </div>
+            </div>
+          </div>
         </section>
       </main>
     </div>

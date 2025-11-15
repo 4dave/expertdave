@@ -70,13 +70,23 @@ export default function Header({ menuOpen, setMenuOpen, onNavClick }: Props) {
           </ul>
 
           {/* Hamburger icon */}
-          <button
-            className="sm:hidden text-primary focus:outline-none cursor-pointer"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={menuOpen ? "Close Menu" : "Open menu"}
-          >
-            {menuOpen ? <XIcon /> : <MenuIcon />}
-          </button>
+
+          <div className="sm:hidden flex items-center gap-4">
+            <span onClick={toggleTheme}>
+              <img
+                src={theme === "dark" ? Light : Dark}
+                alt="theme icon"
+                className="h-6 w-6 cursor-pointer"
+              />
+            </span>
+            <button
+              className="sm:hidden text-primary focus:outline-none cursor-pointer"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label={menuOpen ? "Close Menu" : "Open menu"}
+            >
+              {menuOpen ? <XIcon /> : <MenuIcon />}
+            </button>
+          </div>
 
           {/* Mobile dropdown */}
           {menuOpen && (
