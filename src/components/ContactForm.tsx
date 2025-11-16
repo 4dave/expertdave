@@ -64,18 +64,33 @@ export default function ContactForm() {
       setIsSubmitting(true)
       setStatus("idle")
 
-      // 👇 Replace this with your real API call or form service
-      // Example:
-      // await fetch("/api/contact", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify(values),
-      // })
+      // 👉 Build the form data for Web3Forms
+      const formData = new FormData()
+      formData.append("access_key", "70146e27-62c1-40b6-a101-902d46b7e142")
+      formData.append("name", values.name)
+      formData.append("email", values.email)
+      formData.append("message", values.message)
+      formData.append("botcheck", "")
 
-      await new Promise((resolve) => setTimeout(resolve, 800)) // fake delay
+      // Optional but recommended:
+      formData.append("subject", "New message from ExpertDave.com")
+      formData.append("from_name", "ExpertDave.com Contact")
 
-      setStatus("success")
-      setValues({ name: "", email: "", message: "" })
+      // 👉 Send to Web3Forms API
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        setStatus("success")
+        setValues({ name: "", email: "", message: "" })
+      } else {
+        console.error(data)
+        setStatus("error")
+      }
     } catch (err) {
       console.error(err)
       setStatus("error")
@@ -93,6 +108,16 @@ export default function ContactForm() {
         >
           Name
         </label>
+        {/* honeypot field to prevent spam - Web3Forms will flag 
+        as spam if filled (bots fill, humans don't)*/}
+        <input
+          type="text"
+          name="botcheck"
+          className="hidden"
+          style={{ display: "none" }}
+          onChange={() => {}} // prevents React warnings
+          tabIndex={-1}
+        />
         <input
           id="name"
           name="name"
