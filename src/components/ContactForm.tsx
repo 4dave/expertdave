@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react"
+import { useState, useEffect, useRef, type FormEvent } from "react"
 
 type FormValues = {
   name: string
@@ -18,6 +18,37 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<FormErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle")
+
+  const formRef = useRef<HTMLFormElement>(null)
+
+  // Disable scroll-snap when form is focused
+  useEffect(() => {
+    const handleFocus = () => {
+      document.documentElement.classList.add("no-scroll-snap")
+      document.body.classList.add("no-scroll-snap")
+    }
+    const handleBlur = (e: FocusEvent) => {
+      // Only remove if focus is moving outside the form
+      const form = formRef.current
+      if (form && !form.contains(e.relatedTarget as Node)) {
+        document.documentElement.classList.remove("no-scroll-snap")
+        document.body.classList.remove("no-scroll-snap")
+      }
+    }
+
+    const form = formRef.current
+    if (!form) return
+
+    form.addEventListener("focusin", handleFocus)
+    form.addEventListener("focusout", handleBlur)
+
+    return () => {
+      form.removeEventListener("focusin", handleFocus)
+      form.removeEventListener("focusout", handleBlur)
+      document.documentElement.classList.remove("no-scroll-snap")
+      document.body.classList.remove("no-scroll-snap")
+    }
+  }, [])
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -100,7 +131,12 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+    <form
+      ref={formRef}
+      onSubmit={handleSubmit}
+      className="space-y-6 pb-8"
+      noValidate
+    >
       <div className="space-y-2">
         <label
           htmlFor="name"

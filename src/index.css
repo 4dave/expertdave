@@ -8,8 +8,26 @@ body {
   height: 100%;
 }
 
+/* Disable scroll snap when input/textarea is focused to prevent keyboard issues */
+body:has(input:focus, textarea:focus),
+body.no-scroll-snap {
+  scroll-snap-type: none;
+}
+
+/* Also disable on html to ensure it works */
+html.no-scroll-snap {
+  scroll-snap-type: none;
+}
+
+/* Disable snap-start on sections when scroll-snap is disabled */
+.no-scroll-snap section {
+  scroll-snap-align: none;
+}
+
+/* postcss-disable-next-line */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* postcss-disable-next-line */
 @theme {
   --color-main: var(--bg-main);
   --color-primary: var(--text-primary);
