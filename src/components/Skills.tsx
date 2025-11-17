@@ -6,6 +6,8 @@ import NextIcon from "@/assets/icons/nextjs.svg?react"
 import TailwindIcon from "@/assets/icons/tailwindcss.svg?react"
 import HtmlIcon from "@/assets/icons/html5.svg?react"
 import CssIcon from "@/assets/icons/css.svg?react"
+import Javascript from "@/assets/icons/javascript.svg?react"
+import Typescript from "@/assets/icons/typescript.svg?react"
 
 // BACKEND & API
 import NodeIcon from "@/assets/icons/nodejs.svg?react"
@@ -64,6 +66,8 @@ const categories: Category[] = [
       { name: "Tailwind CSS", Icon: TailwindIcon, color: "#38BDF8" },
       { name: "HTML5", Icon: HtmlIcon, color: "#E44D26" },
       { name: "CSS", Icon: CssIcon, color: "#1572B6" },
+      { name: "JavaScript", Icon: Javascript, color: "#F7DF1E" },
+      { name: "TypeScript", Icon: Typescript, color: "#3178C6" },
     ],
   },
   {
