@@ -24,30 +24,6 @@ function Projects() {
         "A lightweight e-commerce prototype with product grids, filtering, and a mock checkout flow.",
       tech: ["React", "Tailwind", "Mock API"],
     },
-    {
-      title: "Personal Portfolio",
-      description:
-        "A modern portfolio website built with React, Vite, and TailwindCSS showcasing my work and experience.",
-      tech: ["React", "Vite", "Tailwind"],
-    },
-    {
-      title: "Task Manager App",
-      description:
-        "A simple task tracking application with local storage persistence and a clean, responsive UI.",
-      tech: ["React", "TypeScript"],
-    },
-    {
-      title: "Weather Dashboard",
-      description:
-        "A weather dashboard that fetches live data from a public API and displays forecasts for multiple cities.",
-      tech: ["JavaScript", "REST API"],
-    },
-    {
-      title: "E-commerce Prototype",
-      description:
-        "A lightweight e-commerce prototype with product grids, filtering, and a mock checkout flow.",
-      tech: ["React", "Tailwind", "Mock API"],
-    },
   ]
 
   return (
