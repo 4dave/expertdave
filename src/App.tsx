@@ -3,6 +3,7 @@ import Header from "./components/Header"
 import Projects from "./components/Projects"
 import ContactForm from "./components/ContactForm"
 import Nerd from "./assets/nerd.png"
+import Skills from "./components/Skills"
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -11,10 +12,14 @@ export default function App() {
   const projectsRef = useRef<HTMLDivElement | null>(null)
   const aboutRef = useRef<HTMLDivElement | null>(null)
   const contactRef = useRef<HTMLDivElement | null>(null)
+  const skillsRef = useRef<HTMLDivElement | null>(null)
 
-  function handleNavClick(section: "home" | "projects" | "about" | "contact") {
+  function handleNavClick(
+    section: "home" | "skills" | "projects" | "about" | "contact"
+  ) {
     const sectionMap = {
       home: homeRef,
+      skills: skillsRef,
       projects: projectsRef,
       about: aboutRef,
       contact: contactRef,
@@ -53,6 +58,21 @@ export default function App() {
               should do next (scroll to Projects, view your work, etc.).
             </p>
           </div>
+        </section>
+
+        {/* skills section */}
+        <section
+          ref={skillsRef}
+          id="skills"
+          className="min-h-screen px-4 py-24 max-w-6xl mx-auto snap-start"
+        >
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Skills</h2>
+          <p className="text-primary/80 mb-8 text-sm sm:text-base">
+            A snapshot of the tools and technologies I use to design, build, and
+            ship reliable products.
+          </p>
+
+          <Skills />
         </section>
 
         {/* PROJECTS SECTION */}

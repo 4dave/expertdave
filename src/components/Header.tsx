@@ -12,6 +12,7 @@ type Props = {
 }
 
 const navItems = [
+  { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
   { id: "about", label: "About" },
   { id: "contact", label: "Contact" },
