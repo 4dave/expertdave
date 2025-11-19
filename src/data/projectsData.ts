@@ -18,19 +18,19 @@ export const projects: Project[] = [
     tech: ["React", "Vite", "Tailwind"],
     desktopScreenshot: "/screenshots/portfolio-desktop.png",
     mobileScreenshot: "/screenshots/portfolio-mobile.png",
-    codeUrl: "#",
-    demoUrl: "#",
+    codeUrl: "https://github.com/4dave/expertdave",
+    demoUrl: "https://expertdave.vercel.app/",
   },
-  // {
-  //   title: "Task Manager App",
-  //   description:
-  //     "A simple task tracking application with local storage persistence and a clean, responsive UI.",
-  //   tech: ["React", "TypeScript"],
-  //   desktopScreenshot: "/screenshots/task-desktop.png",
-  //   mobileScreenshot: "/screenshots/task-mobile.png",
-  //   codeUrl: "#",
-  //   demoUrl: "#",
-  // },
+  {
+    title: "Begin: Task Manager App",
+    description:
+      "A task tracking application with Firebase integration for real-time updates and user authentication.",
+    tech: ["Google", "Firebase"],
+    desktopScreenshot: "/screenshots/chores-desktop.png",
+    mobileScreenshot: "/screenshots/chores-mobile.png",
+    codeUrl: "https://github.com/4dave/chores",
+    demoUrl: "https://begin.vercel.app/",
+  },
   // {
   //   title: "Weather Dashboard",
   //   description:
@@ -48,7 +48,7 @@ export const projects: Project[] = [
     tech: ["React", "Tailwind", "Mock API"],
     desktopScreenshot: "/screenshots/corralio-desktop.png",
     mobileScreenshot: "/screenshots/corralio-mobile.png",
-    codeUrl: "#",
-    demoUrl: "#",
+    codeUrl: "https://github.com/4dave/corralio",
+    demoUrl: "https://corralio.vercel.app/",
   },
 ]
