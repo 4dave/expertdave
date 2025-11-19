@@ -30,6 +30,14 @@ export default function App() {
     }
   }
 
+  // Helper for the scroll indicator click
+  function handleScrollDown() {
+    if (skillsRef.current) {
+      const y = skillsRef.current.offsetTop
+      window.scrollTo({ top: y, behavior: "smooth" })
+    }
+  }
+
   return (
     <div className="flex flex-col min-h-screen bg-main text-primary">
       <Header
@@ -43,7 +51,7 @@ export default function App() {
         <section
           ref={homeRef}
           id="home"
-          className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 snap-start"
+          className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 snap-start"
         >
           <div className="max-w-3xl text-center space-y-4">
             <h1 className="text-4xl font-semibold">
@@ -55,6 +63,37 @@ export default function App() {
               reliability, performance, and thoughtful design.
             </p>
           </div>
+
+          {/* Scroll Indicator (desktop only) */}
+          <button
+            type="button"
+            onClick={handleScrollDown}
+            className="hidden sm:flex flex-col items-center gap-2 absolute bottom-6 left-1/2 -translate-x-1/2 text-primary/70 hover:text-primary focus:outline-none group"
+            aria-label="Scroll to see more"
+          >
+            {/* Mouse shape */}
+            <div className="h-10 w-6 rounded-full border border-primary/30 flex items-start justify-center p-1">
+              <div className="h-2 w-1 rounded-full bg-primary/70 animate-bounce" />
+            </div>
+            {/* Text + chevron */}
+            <span className="text-[11px] tracking-[0.2em] uppercase">
+              Scroll
+            </span>
+            <svg
+              className="w-4 h-4 animate-bounce group-hover:translate-y-0.5 transition-transform"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M6 9l6 6 6-6"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
         </section>
 
         {/* skills section */}
@@ -79,10 +118,6 @@ export default function App() {
           className="min-h-screen px-4 py-24 max-w-6xl mx-auto snap-start"
         >
           <h2 className="text-2xl sm:text-3xl font-semibold mb-6">Projects</h2>
-          {/* Replace this with your real projects grid/list */}
-          {/* <p className="text-primary/80">
-            This is where your project cards or grid will go.
-          </p> */}
           <Projects />
         </section>
 
@@ -116,7 +151,6 @@ export default function App() {
                   <img
                     src={Nerd}
                     alt="Person at a computer"
-                    // className="w-40 sm:w-48"
                     className="w-52 sm:w-60"
                   />
                   <div className="text-center space-y-2">
