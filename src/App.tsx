@@ -9,19 +9,15 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const homeRef = useRef<HTMLDivElement | null>(null)
-  const projectsRef = useRef<HTMLDivElement | null>(null)
-  const aboutRef = useRef<HTMLDivElement | null>(null)
-  const contactRef = useRef<HTMLDivElement | null>(null)
   const skillsRef = useRef<HTMLDivElement | null>(null)
+  const projectsRef = useRef<HTMLDivElement | null>(null)
+  const contactRef = useRef<HTMLDivElement | null>(null)
 
-  function handleNavClick(
-    section: "home" | "skills" | "projects" | "about" | "contact"
-  ) {
+  function handleNavClick(section: "home" | "skills" | "projects" | "contact") {
     const sectionMap = {
       home: homeRef,
       skills: skillsRef,
       projects: projectsRef,
-      about: aboutRef,
       contact: contactRef,
     } as const
 
@@ -51,11 +47,12 @@ export default function App() {
         >
           <div className="max-w-3xl text-center space-y-4">
             <h1 className="text-4xl font-semibold">
-              Hi, I&apos;m Dave. I build modern web apps.
+              Hi, I&apos;m Dave. I&apos;m a professional tech.
             </h1>
             <p className="text-base sm:text-lg text-primary/80">
-              Short intro about who you are, what you do, and what someone
-              should do next (scroll to Projects, view your work, etc.).
+              I am passionate about building full-stack systems—frontend,
+              backend, APIs, and cloud infrastructure—with a focus on
+              reliability, performance, and thoughtful design.
             </p>
           </div>
         </section>
@@ -87,20 +84,6 @@ export default function App() {
             This is where your project cards or grid will go.
           </p> */}
           <Projects />
-        </section>
-
-        {/* ABOUT SECTION */}
-        <section
-          ref={aboutRef}
-          id="about"
-          className="min-h-screen px-4 py-24 max-w-5xl mx-auto snap-start"
-        >
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-6">About</h2>
-
-          <p className="text-primary/80">
-            A short story about you, your background, and what you like to work
-            on.
-          </p>
         </section>
 
         {/* CONTACT SECTION */}

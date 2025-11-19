@@ -7,14 +7,13 @@ import { MenuIcon, XIcon } from "../lib/MenuIcons"
 type Props = {
   menuOpen: boolean
   setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>
-  // onNavClick: (section: "home" | "projects" | "about" | "contact") => void
+  // onNavClick: (section: "home" | "projects" | "contact") => void
   onNavClick: (section: SectionId) => void
 }
 
 const navItems = [
   { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
-  { id: "about", label: "About" },
   { id: "contact", label: "Contact" },
 ] as const
 

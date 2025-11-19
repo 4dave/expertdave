@@ -49,6 +49,7 @@ type Skill = {
   name: string
   Icon: SvgIcon
   color: string
+  lightModeFix?: boolean
 }
 
 type Category = {
@@ -60,13 +61,18 @@ const categories: Category[] = [
   {
     name: "Frontend",
     skills: [
-      { name: "React", Icon: ReactIcon, color: "#61DAFB" },
+      { name: "React", Icon: ReactIcon, color: "#61DAFB", lightModeFix: true },
       { name: "React Query", Icon: ReactQueryIcon, color: "#FF4154" },
       { name: "Next.js", Icon: NextIcon, color: "#000000" },
       { name: "Tailwind CSS", Icon: TailwindIcon, color: "#38BDF8" },
       { name: "HTML5", Icon: HtmlIcon, color: "#E44D26" },
       { name: "CSS", Icon: CssIcon, color: "#1572B6" },
-      { name: "JavaScript", Icon: Javascript, color: "#F7DF1E" },
+      {
+        name: "JavaScript",
+        Icon: Javascript,
+        color: "#F7DF1E",
+        lightModeFix: true,
+      },
       { name: "TypeScript", Icon: Typescript, color: "#3178C6" },
     ],
   },
@@ -76,7 +82,12 @@ const categories: Category[] = [
       { name: "Node.js", Icon: NodeIcon, color: "#3C873A" },
       { name: "Go", Icon: GoIcon, color: "#00ADD8" },
       { name: "Python", Icon: PythonIcon, color: "#3776AB" },
-      { name: "REST APIs", Icon: SwaggerIcon, color: "#85EA2D" },
+      {
+        name: "REST APIs",
+        Icon: SwaggerIcon,
+        color: "#85EA2D",
+        lightModeFix: true,
+      },
     ],
   },
   {
@@ -141,21 +152,20 @@ function Skills() {
             </h3>
 
             <div className="flex flex-wrap gap-3">
-              {category.skills.map(({ name, Icon, color }) => (
+              {category.skills.map(({ name, Icon, color, lightModeFix }) => (
                 <div
                   key={name}
                   className="group/skill inline-flex items-center gap-2 rounded-full border border-border-nav/70 bg-background/80 
                              px-3 py-1 text-xs sm:text-sm
                              hover:border-primary/60 hover:bg-background/95 hover:-translate-y-px 
-                             transition-all duration-150"
+                             transition-all duration-150 "
                 >
                   <Icon
-                    className="h-4 w-4 sm:h-5 sm:w-5 
-                               transition-transform duration-150
-                               group-hover/skill:scale-110"
+                    className={`h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-150
+              group-hover/skill:scale-110
+              ${lightModeFix ? "light-icon-fix" : ""}`}
                     style={{
                       fill: color,
-                      filter: "drop-shadow(0 0 3px rgba(255,255,255,0.35))",
                     }}
                   />
                   <span className="text-primary/90">{name}</span>
