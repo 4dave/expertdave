@@ -46,3 +46,14 @@ html.no-scroll-snap {
   /* stone-400 */
   --text-primary: #a6a09b;
 }
+
+/* Light-mode fixes for icons that get washed out */
+.light-icon-fix {
+  /* subtle outline */
+  stroke: rgba(0, 0, 0, 0.4);
+}
+
+/* Don’t affect dark mode (your dark theme already looks great) */
+.dark .light-icon-fix {
+  stroke: none;
+}
