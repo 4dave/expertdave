@@ -1,5 +1,3 @@
-// src/components/Projects.tsx
-
 import { motion } from "framer-motion"
 import type { FunctionComponent, SVGProps } from "react"
 import { useState } from "react"
@@ -170,6 +168,8 @@ function ProjectCard({ project: proj, index }: ProjectCardProps) {
         <div className="mt-4 flex flex-wrap gap-3">
           <a
             href={proj.demoUrl ?? "#"}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-1 rounded-full bg-primary/10 px-4 py-1.5 
                        text-xs sm:text-sm text-primary hover:bg-primary/20 hover:-translate-y-px 
                        transition-all duration-150"
@@ -180,6 +180,8 @@ function ProjectCard({ project: proj, index }: ProjectCardProps) {
 
           <a
             href={proj.codeUrl ?? "#"}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-1 rounded-full border border-primary/60 px-4 py-1.5 
                        text-xs sm:text-sm text-primary hover:bg-primary/10 hover:-translate-y-px 
                        transition-all duration-150"
