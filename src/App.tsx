@@ -4,6 +4,8 @@ import Projects from "./components/Projects"
 import ContactForm from "./components/ContactForm"
 import Nerd from "./assets/nerd.png"
 import Skills from "./components/Skills"
+import { ScrollIndicator } from "./lib/Scrollindicator"
+
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -24,17 +26,9 @@ export default function App() {
     const targetRef = sectionMap[section]
 
     if (targetRef.current) {
-      const y = targetRef.current.offsetTop // might need to subtract header height
+      const y = targetRef.current.offsetTop
       window.scrollTo({ top: y, behavior: "smooth" })
       setMenuOpen(false)
-    }
-  }
-
-  // Helper for the scroll indicator click
-  function handleScrollDown() {
-    if (skillsRef.current) {
-      const y = skillsRef.current.offsetTop
-      window.scrollTo({ top: y, behavior: "smooth" })
     }
   }
 
@@ -51,7 +45,7 @@ export default function App() {
         <section
           ref={homeRef}
           id="home"
-          className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 snap-start"
+          className="relative min-h-screen flex items-center justify-center px-4 snap-start"
         >
           <div className="max-w-3xl text-center space-y-4">
             <h1 className="text-4xl font-semibold">
@@ -65,49 +59,19 @@ export default function App() {
           </div>
 
           {/* Scroll Indicator (desktop only) */}
-          <button
-            type="button"
-            onClick={handleScrollDown}
-            className="hidden sm:flex flex-col items-center gap-2 absolute bottom-6 left-1/2 -translate-x-1/2 text-primary/70 hover:text-primary focus:outline-none group"
-            aria-label="Scroll to see more"
-          >
-            {/* Mouse shape */}
-            <div className="h-10 w-6 rounded-full border border-primary/30 flex items-start justify-center p-1">
-              <div className="h-2 w-1 rounded-full bg-primary/70 animate-bounce" />
-            </div>
-            {/* Text + chevron */}
-            <span className="text-[11px] tracking-[0.2em] uppercase">
-              Scroll
-            </span>
-            <svg
-              className="w-4 h-4 animate-bounce group-hover:translate-y-0.5 transition-transform"
-              viewBox="0 0 24 24"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M6 9l6 6 6-6"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
+          <ScrollIndicator skillsRef={skillsRef} />
         </section>
 
         {/* skills section */}
         <section
           ref={skillsRef}
           id="skills"
-          className="min-h-screen px-4 py-24 max-w-6xl mx-auto snap-start"
+          className="min-h-screen px-4 pt-24 max-w-6xl mx-auto flex flex-col items-center snap-start"
         >
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Skills</h2>
-          <p className="text-primary/80 mb-8 text-sm sm:text-base">
-            A snapshot of the tools and technologies I use to design, build, and
-            ship reliable products.
+          <h2 className="text-2xl sm:text-3xl font-semibold">Skills</h2>
+          <p className="text-primary/60 tracking-wide text-sm mb-4">
+            some tools and tech I love to use 💜
           </p>
-
           <Skills />
         </section>
 
@@ -115,9 +79,12 @@ export default function App() {
         <section
           ref={projectsRef}
           id="projects"
-          className="min-h-screen px-4 py-24 max-w-6xl mx-auto snap-start"
+          className="min-h-screen px-4 pt-24 max-w-6xl mx-auto flex flex-col items-center snap-start"
         >
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-6">Projects</h2>
+          <h2 className="text-2xl sm:text-3xl font-semibold">Projects</h2>
+          <p className="text-primary/60 tracking-wide text-sm mb-4">
+            some personal web projects I have deployed <span className="text-lg">🚀</span>
+          </p>
           <Projects />
         </section>
 
@@ -125,59 +92,52 @@ export default function App() {
         <section
           ref={contactRef}
           id="contact"
-          className="min-h-screen px-4 py-24 snap-start"
+          className="min-h-screen  px-4 pt-24 max-w-6xl mx-auto flex flex-col items-center snap-start"
         >
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-10">
-              <h2 className="mt-4 text-3xl sm:text-4xl font-semibold text-primary">
-                Contact
-              </h2>
-              <div className="mt-3 h-1 w-16 mx-auto rounded-full bg-primary/40" />
-              <p className="mt-4 text-sm sm:text-base text-primary/70">
-                Have a project in mind or just want to say hi? I usually reply
-                within 1–2 business days.
-              </p>
-            </div>
 
-            <div className="grid gap-10 lg:grid-cols-2 items-start">
-              {/* Left: illustration card */}
-              <div className="relative">
-                {/* soft glow behind the card */}
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -inset-1 rounded-3xl bg-[radial-gradient(circle_at_top,rgba(250,250,249,0.08),transparent_60%)]"
+          <h2 className="text-2xl sm:text-3xl font-semibold">Contact</h2>
+          <p className="text-primary/60 tracking-wide text-sm mb-4">
+            connection is key. reach out to me <span className="text-lg">🙋🏻‍♂️</span>
+          </p>
+
+          <div className="grid gap-10 lg:grid-cols-2 items-start">
+            {/* Left: illustration card */}
+            <div className="relative">
+              {/* soft glow behind the card */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -inset-1 rounded-3xl bg-[radial-gradient(circle_at_top,rgba(250,250,249,0.08),transparent_60%)]"
+              />
+              <div className="relative rounded-3xl border border-border-nav/60 bg-main/5 px-8 py-10 shadow-lg flex flex-col items-center gap-6 ">
+                <img
+                  src={Nerd}
+                  alt="Person at a computer"
+                  className="w-52 sm:w-60"
                 />
-                <div className="relative rounded-3xl border border-border-nav/60 bg-main/5 px-8 py-10 shadow-lg flex flex-col items-center gap-6 ">
-                  <img
-                    src={Nerd}
-                    alt="Person at a computer"
-                    className="w-52 sm:w-60"
-                  />
-                  <div className="text-center space-y-2">
-                    <p className="text-sm text-primary/70">
-                      I&apos;m open to freelance work, collaborations, or just
-                      chatting about web dev, React, and performance.
-                    </p>
-                  </div>
+                <div className="text-center space-y-2">
+                  <p className="text-sm text-primary/70">
+                    I&apos;d love to hear from you or chat about AI, Web Dev, coding, or dogs 🐶
+                  </p>
+                </div>
 
-                  <div className="flex flex-wrap justify-center gap-2 text-xs text-primary/60 ">
-                    <span className="rounded-full border border-border-nav/50 px-3 py-1">
-                      Frontend &amp; React
-                    </span>
-                    <span className="rounded-full border border-border-nav/50 px-3 py-1">
-                      Full-stack projects
-                    </span>
-                    <span className="rounded-full border border-border-nav/50 px-3 py-1">
-                      Lots More
-                    </span>
-                  </div>
+                <div className="flex flex-wrap justify-center gap-2 text-xs text-primary/60 ">
+                  <span className="rounded-full border border-border-nav/50 px-3 py-1">
+                    Frontend &amp; React
+                  </span>
+                  <span className="rounded-full border border-border-nav/50 px-3 py-1">
+                    Full-stack projects
+                  </span>
+                  <span className="rounded-full border border-border-nav/50 px-3 py-1">
+                    Lots More
+                  </span>
                 </div>
               </div>
-              <div>
-                <ContactForm />
-              </div>
+            </div>
+            <div>
+              <ContactForm />
             </div>
           </div>
+
         </section>
       </main>
     </div>

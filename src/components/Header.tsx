@@ -42,9 +42,7 @@ export default function Header({ menuOpen, setMenuOpen, onNavClick }: Props) {
             <img
               src={Logo}
               alt="Logo"
-              className={`h-8 sm:h-12 ${
-                theme === "dark" ? "sepia" : ""
-              } hover:sepia-0`}
+              className="h-8 sm:h-12 hover:sepia"
             />
             <span className="font-medium text-2xl sm:text-4xl tracking-wider">
               Dave Fredkove
