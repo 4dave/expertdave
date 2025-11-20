@@ -2,26 +2,11 @@ import { motion } from "framer-motion"
 import type { FunctionComponent, SVGProps } from "react"
 import { useState } from "react"
 import { projects } from "@/data/projectsData"
-import { getTechColor } from "@/lib/getTechColor"
+import { TechBadge } from "@/components/TechBadge"
 
-import ReactIcon from "@/assets/icons/react.svg?react"
-import TailwindIcon from "@/assets/icons/tailwindcss.svg?react"
 import GithubIcon from "@/assets/icons/github.svg?react"
-import ViteIcon from "@/assets/icons/vite.svg?react"
-import TypescriptIcon from "@/assets/icons/typescript.svg?react"
-import NextjsIcon from "@/assets/icons/nextjs.svg?react"
-import FirebaseIcon from "@/assets/icons/firebase.svg?react"
 
 type SvgIcon = FunctionComponent<SVGProps<SVGSVGElement>>
-
-const techIconMap: Record<string, SvgIcon | undefined> = {
-  React: ReactIcon,
-  Tailwind: TailwindIcon,
-  Vite: ViteIcon,
-  Typescript: TypescriptIcon,
-  Nextjs: NextjsIcon,
-  Firebase: FirebaseIcon,
-}
 
 const ExternalLinkIcon: SvgIcon = (props) => (
   <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" {...props}>
@@ -138,32 +123,9 @@ function ProjectCard({ project: proj, index }: ProjectCardProps) {
 
         {/* Tech tags */}
         <div className="mt-auto flex flex-wrap gap-2">
-          {proj.tech.map((tech) => {
-            const TechIcon = techIconMap[tech]
-
-            return (
-              <span
-                key={tech}
-                className="group/tech inline-flex items-center gap-1 rounded-full border border-border-nav/70 
-                           bg-background/80 px-2.5 py-1 text-[0.7rem] sm:text-xs
-                           hover:border-primary/60 hover:bg-background/95 hover:-translate-y-px
-                           transition-all duration-150"
-              >
-                {TechIcon && (
-                  <TechIcon
-                    className="h-3.5 w-3.5 sm:h-4 sm:w-4
-                               transition-transform duration-150
-                               group-hover/tech:scale-110"
-                    style={{
-                      fill: getTechColor(tech),
-                      filter: "drop-shadow(0 0 3px rgba(255,255,255,0.35))",
-                    }}
-                  />
-                )}
-                <span className="text-primary/90">{tech}</span>
-              </span>
-            )
-          })}
+          {proj.tech.map((tech) => (
+            <TechBadge key={tech} name={tech} />
+          ))}
         </div>
 
         {/* Buttons row */}
