@@ -97,7 +97,7 @@ export default function ContactForm() {
 
       // 👉 Build the form data for Web3Forms
       const formData = new FormData()
-      formData.append("access_key", "70146e27-62c1-40b6-a101-902d46b7e142")
+      formData.append("access_key", import.meta.env.VITE_WEB3FORMS_API_KEY)
       formData.append("name", values.name)
       formData.append("email", values.email)
       formData.append("message", values.message)
@@ -151,7 +151,7 @@ export default function ContactForm() {
           name="botcheck"
           className="hidden"
           style={{ display: "none" }}
-          onChange={() => {}} // prevents React warnings
+          onChange={() => { }} // prevents React warnings
           tabIndex={-1}
         />
         <input
@@ -160,9 +160,8 @@ export default function ContactForm() {
           type="text"
           value={values.name}
           onChange={handleChange}
-          className={`w-full rounded-md border px-3 py-2 bg-main text-primary outline-none focus:ring-2 focus:ring-offset-1 focus:ring-primary/60 ${
-            errors.name ? "border-red-500" : "border-border-nav"
-          }`}
+          className={`w-full rounded-md border px-3 py-2 bg-main text-primary outline-none focus:ring-2 focus:ring-offset-1 focus:ring-primary/60 ${errors.name ? "border-red-500" : "border-border-nav"
+            }`}
           placeholder="Your name"
         />
         {errors.name && <p className="text-xs text-red-500">{errors.name}</p>}
@@ -181,9 +180,8 @@ export default function ContactForm() {
           type="email"
           value={values.email}
           onChange={handleChange}
-          className={`w-full rounded-md border px-3 py-2 bg-main text-primary outline-none focus:ring-2 focus:ring-offset-1 focus:ring-primary/60 ${
-            errors.email ? "border-red-500" : "border-border-nav"
-          }`}
+          className={`w-full rounded-md border px-3 py-2 bg-main text-primary outline-none focus:ring-2 focus:ring-offset-1 focus:ring-primary/60 ${errors.email ? "border-red-500" : "border-border-nav"
+            }`}
           placeholder="you@example.com"
         />
         {errors.email && <p className="text-xs text-red-500">{errors.email}</p>}
@@ -202,9 +200,8 @@ export default function ContactForm() {
           rows={5}
           value={values.message}
           onChange={handleChange}
-          className={`w-full rounded-md border px-3 py-2 bg-main text-primary outline-none resize-y focus:ring-2 focus:ring-offset-1 focus:ring-primary/60 ${
-            errors.message ? "border-red-500" : "border-border-nav"
-          }`}
+          className={`w-full rounded-md border px-3 py-2 bg-main text-primary outline-none resize-y focus:ring-2 focus:ring-offset-1 focus:ring-primary/60 ${errors.message ? "border-red-500" : "border-border-nav"
+            }`}
           placeholder="Tell me a bit about your project or question..."
         />
         {errors.message && (
