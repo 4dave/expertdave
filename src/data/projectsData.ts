@@ -15,7 +15,7 @@ export const projects: Project[] = [
     title: "Personal Portfolio",
     description:
       "A modern portfolio website built with React, Vite, and TailwindCSS showcasing my work and experience.",
-    tech: ["React", "Vite", "Tailwind"],
+    tech: ["React", "Vite", "Typescript", "Tailwind"],
     desktopScreenshot: "/screenshots/portfolio-desktop.png",
     mobileScreenshot: "/screenshots/portfolio-mobile.png",
     codeUrl: "https://github.com/4dave/expertdave",
@@ -25,7 +25,7 @@ export const projects: Project[] = [
     title: "Begin: Task Manager App",
     description:
       "A task tracking application with Firebase integration for real-time updates and user authentication.",
-    tech: ["Google", "Firebase"],
+    tech: ["React", "Vite", "Typescript", "Firebase"],
     desktopScreenshot: "/screenshots/chores-desktop.png",
     mobileScreenshot: "/screenshots/chores-mobile.png",
     codeUrl: "https://github.com/4dave/chores",
@@ -45,7 +45,7 @@ export const projects: Project[] = [
     title: "Corralio Events",
     description:
       "An event planning application with New events, RSVP, emails, Login.",
-    tech: ["React", "Tailwind", "Mock API"],
+    tech: ["Nextjs", "React", "Typescript", "Tailwind"],
     desktopScreenshot: "/screenshots/corralio-desktop.png",
     mobileScreenshot: "/screenshots/corralio-mobile.png",
     codeUrl: "https://github.com/4dave/corralio",

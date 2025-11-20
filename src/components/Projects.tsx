@@ -2,17 +2,25 @@ import { motion } from "framer-motion"
 import type { FunctionComponent, SVGProps } from "react"
 import { useState } from "react"
 import { projects } from "@/data/projectsData"
+import { getTechColor } from "@/lib/getTechColor"
 
 import ReactIcon from "@/assets/icons/react.svg?react"
 import TailwindIcon from "@/assets/icons/tailwindcss.svg?react"
 import GithubIcon from "@/assets/icons/github.svg?react"
+import ViteIcon from "@/assets/icons/vite.svg?react"
+import TypescriptIcon from "@/assets/icons/typescript.svg?react"
+import NextjsIcon from "@/assets/icons/nextjs.svg?react"
+import FirebaseIcon from "@/assets/icons/firebase.svg?react"
 
 type SvgIcon = FunctionComponent<SVGProps<SVGSVGElement>>
 
 const techIconMap: Record<string, SvgIcon | undefined> = {
   React: ReactIcon,
   Tailwind: TailwindIcon,
-  "Tailwind CSS": TailwindIcon,
+  Vite: ViteIcon,
+  Typescript: TypescriptIcon,
+  Nextjs: NextjsIcon,
+  Firebase: FirebaseIcon,
 }
 
 const ExternalLinkIcon: SvgIcon = (props) => (
@@ -61,18 +69,17 @@ function ProjectCard({ project: proj, index }: ProjectCardProps) {
         {(proj.desktopScreenshot || proj.mobileScreenshot) && (
           <div className="mb-4 pb-6">
             {/* <div className="relative"> */}
-            <div className="relative max-w-[360px] mx-auto">
+            <div className="relative mx-auto">
               {/* Desktop preview */}
               {proj.desktopScreenshot && (
                 <div className="overflow-hidden rounded-xl border border-border-nav/50 bg-linear-to-tr from-primary/30 via-background/40 to-purple-500/40">
-                  <div className="relative aspect-square">
+                  <div className="relative aspect-video">
+                    {/* <DesktopPlaceholder /> */}
                     <img
                       src={proj.desktopScreenshot}
                       alt={`${proj.title} desktop screenshot`}
                       onLoad={() => setDesktopLoaded(true)}
                       className={[
-                        "h-full w-full object-cover transition-all duration-500 ease-out",
-                        "group-hover:scale-[1.05]",
                         desktopLoaded
                           ? "blur-0 opacity-100 scale-100"
                           : "blur-md opacity-80 scale-[1.02]",
@@ -80,9 +87,9 @@ function ProjectCard({ project: proj, index }: ProjectCardProps) {
                     />
                     {/* gradient overlay over desktop */}
                     <div
-                      className="pointer-events-none absolute inset-0 
+                      className="pointer-events-none absolute inset-0
                                  bg-linear-to-t from-main/90 via-main/10 to-transparent
-                                 mix-blend-multiply opacity-80 
+                                 mix-blend-multiply opacity-80
                                  group-hover:opacity-60 transition-opacity duration-300"
                     />
                   </div>
@@ -92,13 +99,13 @@ function ProjectCard({ project: proj, index }: ProjectCardProps) {
               {/* Mobile phone preview (overlapping bottom-right) */}
               {proj.mobileScreenshot && (
                 <div
-                  className="absolute -bottom-4 right-3 w-20 xs:w-24 sm:w-28 md:w-32
+                  className="absolute -bottom-4 right-3 w-24 xs:w-24 sm:w-28 md:w-32
                              aspect-9/16 overflow-hidden rounded-2xl border border-border-nav/70 
                              bg-main/95 shadow-xl
                              group-hover:translate-y-1 group-hover:translate-x-0.5
                              transition-transform duration-300"
                 >
-                  <div className="relative h-full w-full">
+                  <div className="relative h-full w-full aspect-9/16">
                     <img
                       src={proj.mobileScreenshot}
                       alt={`${proj.title} mobile screenshot`}
@@ -148,12 +155,7 @@ function ProjectCard({ project: proj, index }: ProjectCardProps) {
                                transition-transform duration-150
                                group-hover/tech:scale-110"
                     style={{
-                      fill:
-                        tech === "React"
-                          ? "#61DAFB"
-                          : tech === "Tailwind" || tech === "Tailwind CSS"
-                          ? "#38BDF8"
-                          : "#ffffff",
+                      fill: getTechColor(tech),
                       filter: "drop-shadow(0 0 3px rgba(255,255,255,0.35))",
                     }}
                   />
