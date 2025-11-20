@@ -27,6 +27,7 @@ import F5Icon from "@/assets/icons/f5.svg?react"
 import PostgresIcon from "@/assets/icons/postgresql.svg?react"
 import MongoIcon from "@/assets/icons/mongodb.svg?react"
 import RedisIcon from "@/assets/icons/redis.svg?react"
+import FirebaseIcon from "@/assets/icons/firebase.svg?react"
 
 // TOOLS
 import NpmIcon from "@/assets/icons/npm.svg?react"
@@ -107,6 +108,7 @@ const categories: Category[] = [
       { name: "PostgreSQL", Icon: PostgresIcon, color: "#336791" },
       { name: "MongoDB", Icon: MongoIcon, color: "#47A248" },
       { name: "Redis", Icon: RedisIcon, color: "#DC382D" },
+      { name: "Firebase", Icon: FirebaseIcon, color: "#FFCA28" },
     ],
   },
   {
