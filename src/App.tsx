@@ -6,10 +6,8 @@ import Nerd from "./assets/nerd.png"
 import Skills from "./components/Skills"
 import { ScrollIndicator } from "./lib/Scrollindicator"
 
-
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
-
   const homeRef = useRef<HTMLDivElement | null>(null)
   const skillsRef = useRef<HTMLDivElement | null>(null)
   const projectsRef = useRef<HTMLDivElement | null>(null)
@@ -49,12 +47,10 @@ export default function App() {
         >
           <div className="max-w-3xl text-center space-y-4">
             <h1 className="text-4xl font-semibold">
-              Hi, I&apos;m Dave. I&apos;m a professional tech.
+              Hi, I&apos;m Dave. I&apos;m a Web Engineer.
             </h1>
             <p className="text-base sm:text-lg text-primary/80">
-              I am passionate about building full-stack systems—frontend,
-              backend, APIs, and cloud infrastructure—with a focus on
-              reliability, performance, and thoughtful design.
+              I build full-stack web apps. UI, APIs, cloud systems, and AI-powered tooling—focused on speed, reliability, and creating products that genuinely help people.
             </p>
           </div>
 
@@ -116,19 +112,18 @@ export default function App() {
                 />
                 <div className="text-center space-y-2">
                   <p className="text-sm text-primary/70">
-                    I&apos;d love to hear from you or chat about AI, Web Dev, coding, or dogs 🐶
+                    I&apos;d love to hear from you or answer any questions about my work or interestes!  Just fill out the form here and I'll get back to you ASAP.
                   </p>
                 </div>
-
                 <div className="flex flex-wrap justify-center gap-2 text-xs text-primary/60 ">
                   <span className="rounded-full border border-border-nav/50 px-3 py-1">
-                    Frontend &amp; React
+                    UI / Front-End
                   </span>
                   <span className="rounded-full border border-border-nav/50 px-3 py-1">
-                    Full-stack projects
+                    Full-Stack Web Dev
                   </span>
                   <span className="rounded-full border border-border-nav/50 px-3 py-1">
-                    Lots More
+                    AI-Driven UI (LLMs + MCP)
                   </span>
                 </div>
               </div>
@@ -137,7 +132,6 @@ export default function App() {
               <ContactForm />
             </div>
           </div>
-
         </section>
       </main>
     </div>
