@@ -75,7 +75,7 @@ export default function App() {
         <section
           ref={projectsRef}
           id="projects"
-          className="min-h-screen px-4 pt-24 max-w-6xl mx-auto flex flex-col items-center snap-start"
+          className="min-h-screen px-4 pt-24 max-w-6xl mx-auto flex flex-col items-center"
         >
           <h2 className="text-2xl sm:text-3xl font-semibold">Projects</h2>
           <p className="text-primary/60 tracking-wide text-sm mb-4">
@@ -88,7 +88,7 @@ export default function App() {
         <section
           ref={contactRef}
           id="contact"
-          className="min-h-screen  px-4 pt-24 max-w-6xl mx-auto flex flex-col items-center snap-start"
+          className="min-h-screen  px-4 pt-24 max-w-6xl mx-auto flex flex-col items-center"
         >
 
           <h2 className="text-2xl sm:text-3xl font-semibold">Contact</h2>
@@ -112,7 +112,7 @@ export default function App() {
                 />
                 <div className="text-center space-y-2">
                   <p className="text-sm text-primary/70">
-                    I&apos;d love to hear from you or answer any questions about my work or interestes!  Just fill out the form here and I'll get back to you ASAP.
+                    I&apos;d love to hear from you or answer any questions about my work or interests!  Just fill out the form here and I'll get back to you ASAP.
                   </p>
                 </div>
                 <div className="flex flex-wrap justify-center gap-2 text-xs text-primary/60 ">
