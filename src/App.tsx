@@ -1,17 +1,18 @@
-import { useRef, useState } from "react"
-import Header from "./components/Header"
-import Projects from "./components/Projects"
-import ContactForm from "./components/ContactForm"
-import Nerd from "./assets/nerd.png"
-import Skills from "./components/Skills"
-import { ScrollIndicator } from "./lib/Scrollindicator"
+import { useRef, useState } from "react";
+import Header from "./components/Header";
+import Projects from "./components/Projects";
+import ContactForm from "./components/ContactForm";
+// import FeedbackTab from "./components/FeedbackTab";
+import Nerd from "./assets/nerd.png";
+import Skills from "./components/Skills";
+import { ScrollIndicator } from "./lib/Scrollindicator";
 
 export default function App() {
-  const [menuOpen, setMenuOpen] = useState(false)
-  const homeRef = useRef<HTMLDivElement | null>(null)
-  const skillsRef = useRef<HTMLDivElement | null>(null)
-  const projectsRef = useRef<HTMLDivElement | null>(null)
-  const contactRef = useRef<HTMLDivElement | null>(null)
+  const [menuOpen, setMenuOpen] = useState(false);
+  const homeRef = useRef<HTMLDivElement | null>(null);
+  const skillsRef = useRef<HTMLDivElement | null>(null);
+  const projectsRef = useRef<HTMLDivElement | null>(null);
+  const contactRef = useRef<HTMLDivElement | null>(null);
 
   function handleNavClick(section: "home" | "skills" | "projects" | "contact") {
     const sectionMap = {
@@ -19,25 +20,25 @@ export default function App() {
       skills: skillsRef,
       projects: projectsRef,
       contact: contactRef,
-    } as const
+    } as const;
 
-    const targetRef = sectionMap[section]
+    const targetRef = sectionMap[section];
 
     if (targetRef.current) {
-      const y = targetRef.current.offsetTop
-      window.scrollTo({ top: y, behavior: "smooth" })
-      setMenuOpen(false)
+      const y = targetRef.current.offsetTop;
+      window.scrollTo({ top: y, behavior: "smooth" });
+      setMenuOpen(false);
     }
   }
 
   return (
     <div className="flex flex-col min-h-screen bg-main text-primary">
+      {/* <FeedbackTab />/ */}
       <Header
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
         onNavClick={handleNavClick}
       />
-
       <main className="flex-1">
         {/* HOME / HERO SECTION */}
         <section
@@ -50,7 +51,9 @@ export default function App() {
               Hi, I&apos;m Dave. I&apos;m a Web Engineer.
             </h1>
             <p className="text-base sm:text-lg text-primary/80">
-              I build full-stack web apps. UI, APIs, cloud systems, and AI-powered tooling—focused on speed, reliability, and creating products that genuinely help people.
+              I build full-stack web apps. UI, APIs, cloud systems, and
+              AI-powered tooling—focused on speed, reliability, and creating
+              products that genuinely help people.
             </p>
           </div>
 
@@ -79,7 +82,8 @@ export default function App() {
         >
           <h2 className="text-2xl sm:text-3xl font-semibold">Projects</h2>
           <p className="text-primary/60 tracking-wide text-sm mb-4">
-            some personal web projects I have deployed <span className="text-lg">🚀</span>
+            some personal web projects I have deployed{" "}
+            <span className="text-lg">🚀</span>
           </p>
           <Projects />
         </section>
@@ -90,10 +94,10 @@ export default function App() {
           id="contact"
           className="min-h-screen  px-4 pt-24 max-w-6xl mx-auto flex flex-col items-center"
         >
-
           <h2 className="text-2xl sm:text-3xl font-semibold">Contact</h2>
           <p className="text-primary/60 tracking-wide text-sm mb-4">
-            connection is key. reach out to me <span className="text-lg">🙋🏻‍♂️</span>
+            connection is key. reach out to me{" "}
+            <span className="text-lg">🙋🏻‍♂️</span>
           </p>
 
           <div className="grid gap-10 lg:grid-cols-2 items-start">
@@ -112,7 +116,9 @@ export default function App() {
                 />
                 <div className="text-center space-y-2">
                   <p className="text-sm text-primary/70">
-                    I&apos;d love to hear from you or answer any questions about my work or interests!  Just fill out the form here and I'll get back to you ASAP.
+                    I&apos;d love to hear from you or answer any questions about
+                    my work or interests! Just fill out the form here and I'll
+                    get back to you ASAP.
                   </p>
                 </div>
                 <div className="flex flex-wrap justify-center gap-2 text-xs text-primary/60 ">
@@ -135,5 +141,5 @@ export default function App() {
         </section>
       </main>
     </div>
-  )
+  );
 }
